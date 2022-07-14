@@ -64,8 +64,8 @@ mkdir /etc/nginx/confs
 mkdir /etc/nginx/confs/explicit
 mkdir /etc/nginx/fastcgi
 
-wget --no-check-certificate 'https://raw.githubusercontent.com/nonplayerchar/metahost/main/dev/nginx.conf' -O /etc/nginx/nginx.conf
-wget --no-check-certificate 'https://raw.githubusercontent.com/nonplayerchar/metahost/main/dev/80.conf' -O /etc/nginx/confs/80.conf
+wget --no-check-certificate 'https://raw.githubusercontent.com/nonplayerchar/remote/main/nginx.conf' -O /etc/nginx/nginx.conf
+wget --no-check-certificate 'https://raw.githubusercontent.com/nonplayerchar/remote/main/80.conf' -O /etc/nginx/confs/80.conf
 
 sed -i "s/domain/$domain/g" /etc/nginx/confs/80.conf;
 
@@ -80,7 +80,7 @@ systemctl restart nginx
 mkdir -p /var/www
 mkdir /var/www/main
 
-wget '' -O /var/www/main/index.html
+wget --no-check-certificate 'https://raw.githubusercontent.com/nonplayerchar/remote/main/index.html' -O /var/www/main/index.html
 
 chown -R www-data:www-data /var/www/* #important secuity settings
 chmod 0700 -R /var/www/* #important secuity settings
@@ -109,7 +109,7 @@ chown -R www-data:www-data /etc/letsencrypt/live/$domain
 chown -R www-data:www-data /etc/letsencrypt/archive/$domain
 
 ############ SSL CONFS ############
-wget --no-check-certificate 'https://raw.githubusercontent.com/nonplayerchar/metahost/main/dev/main.conf' -O /etc/nginx/confs/main.conf
+wget --no-check-certificate 'https://raw.githubusercontent.com/nonplayerchar/remote/main/main.conf' -O /etc/nginx/confs/main.conf
 sed -i "s/domain/$domain/g" /etc/nginx/confs/main.conf;
 ###################################
 ##############################################
